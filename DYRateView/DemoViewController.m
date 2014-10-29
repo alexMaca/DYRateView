@@ -53,7 +53,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 }
 
 - (void)setUpEditableRateView {
-    DYRateView *rateView = [[DYRateView alloc] initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, 20) fullStar:[UIImage imageNamed:@"StarFullLarge.png"] emptyStar:[UIImage imageNamed:@"StarEmptyLarge.png"]];
+    DYRateView *rateView = [[DYRateView alloc] initWithFrame:CGRectMake(0, 40, self.view.bounds.size.width, 20) fullStar:[UIImage imageNamed:@"StarFullLarge.png"] emptyStar:[UIImage imageNamed:@"StarEmptyLarge.png"] halfStar:[UIImage imageNamed:@"StarHalfLarge.png"]];
     rateView.padding = 20;
     rateView.alignment = RateViewAlignmentCenter;
     rateView.editable = YES;
@@ -113,7 +113,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #pragma mark - DYRateViewDelegate
 
 - (void)rateView:(DYRateView *)rateView changedToNewRate:(NSNumber *)rate {
-    self.rateLabel.text = [NSString stringWithFormat:@"Rate: %d", rate.intValue];
+    self.rateLabel.text = [NSString stringWithFormat:@"Rate: %.1f", rate.floatValue];
 }
 
 @end

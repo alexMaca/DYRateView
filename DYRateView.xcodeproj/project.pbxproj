@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0886168C1A00ECC200E0F0EE /* StarHalf.png in Resources */ = {isa = PBXBuildFile; fileRef = 088616881A00ECC200E0F0EE /* StarHalf.png */; };
+		0886168D1A00ECC200E0F0EE /* StarHalf@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 088616891A00ECC200E0F0EE /* StarHalf@2x.png */; };
+		0886168E1A00ECC200E0F0EE /* StarHalfLarge.png in Resources */ = {isa = PBXBuildFile; fileRef = 0886168A1A00ECC200E0F0EE /* StarHalfLarge.png */; };
+		0886168F1A00ECC200E0F0EE /* StarHalfLarge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0886168B1A00ECC200E0F0EE /* StarHalfLarge@2x.png */; };
 		D353DC55F2240468AE06EA5E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D353DC55F2240468AE06EA5D /* UIKit.framework */; };
 		D353DC55F2240468AE06EA60 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D353DC55F2240468AE06EA5F /* Foundation.framework */; };
 		D353DC55F2240468AE06EA62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D353DC55F2240468AE06EA61 /* CoreGraphics.framework */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		088616881A00ECC200E0F0EE /* StarHalf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarHalf.png; sourceTree = "<group>"; };
+		088616891A00ECC200E0F0EE /* StarHalf@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarHalf@2x.png"; sourceTree = "<group>"; };
+		0886168A1A00ECC200E0F0EE /* StarHalfLarge.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StarHalfLarge.png; sourceTree = "<group>"; };
+		0886168B1A00ECC200E0F0EE /* StarHalfLarge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "StarHalfLarge@2x.png"; sourceTree = "<group>"; };
 		D353DC55F2240468AE06EA54 /* DYRateView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DYRateView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D353DC55F2240468AE06EA5D /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		D353DC55F2240468AE06EA5F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -129,6 +137,10 @@
 		D353DC55F2240468AE06EA79 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				088616881A00ECC200E0F0EE /* StarHalf.png */,
+				088616891A00ECC200E0F0EE /* StarHalf@2x.png */,
+				0886168A1A00ECC200E0F0EE /* StarHalfLarge.png */,
+				0886168B1A00ECC200E0F0EE /* StarHalfLarge@2x.png */,
 				D353DC55F2240468AE06EA88 /* StarEmpty.png */,
 				D353DC55F2240468AE06EA86 /* StarEmpty@2x.png */,
 				D353DC55F2240468AE06EA84 /* StarEmptyLarge.png */,
@@ -166,6 +178,8 @@
 /* Begin PBXProject section */
 		D353DC55F2240468AE06EA4E /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+			};
 			buildConfigurationList = D353DC55F2240468AE06EA4F /* Build configuration list for PBXProject "DYRateView" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
@@ -189,15 +203,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				D353DC55F2240468AE06EA68 /* InfoPlist.strings in Resources */,
+				0886168D1A00ECC200E0F0EE /* StarHalf@2x.png in Resources */,
 				D353DC55F2240468AE06EA74 /* (null) in Resources */,
 				D353DC55F2240468AE06EA7B /* StarFullLarge@2x.png in Resources */,
 				D353DC55F2240468AE06EA7D /* StarFullLarge.png in Resources */,
 				D353DC55F2240468AE06EA7F /* StarFull@2x.png in Resources */,
+				0886168C1A00ECC200E0F0EE /* StarHalf.png in Resources */,
 				D353DC55F2240468AE06EA81 /* StarFull.png in Resources */,
 				D353DC55F2240468AE06EA83 /* StarEmptyLarge@2x.png in Resources */,
 				D353DC55F2240468AE06EA85 /* StarEmptyLarge.png in Resources */,
 				D353DC55F2240468AE06EA87 /* StarEmpty@2x.png in Resources */,
 				D353DC55F2240468AE06EA89 /* StarEmpty.png in Resources */,
+				0886168E1A00ECC200E0F0EE /* StarHalfLarge.png in Resources */,
+				0886168F1A00ECC200E0F0EE /* StarHalfLarge@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

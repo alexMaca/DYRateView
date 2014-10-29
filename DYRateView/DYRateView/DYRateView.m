@@ -29,6 +29,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 static NSString *DefaultFullStarImageFilename = @"StarFull.png";
 static NSString *DefaultEmptyStarImageFilename = @"StarEmpty.png";
+static NSString *DefaultHalfStarImageFilename = @"StarHalf.png";
 
 @interface DYRateView ()
 
@@ -46,13 +47,14 @@ static NSString *DefaultEmptyStarImageFilename = @"StarEmpty.png";
 @synthesize editable = _editable;
 @synthesize fullStarImage = _fullStarImage;
 @synthesize emptyStarImage = _emptyStarImage;
+@synthesize halfStarImage = _halfStarImage;
 @synthesize delegate = _delegate;
 
 - (DYRateView *)initWithFrame:(CGRect)frame {
-    return [self initWithFrame:frame fullStar:[UIImage imageNamed:DefaultFullStarImageFilename] emptyStar:[UIImage imageNamed:DefaultEmptyStarImageFilename]];
+    return [self initWithFrame:frame fullStar:[UIImage imageNamed:DefaultFullStarImageFilename] emptyStar:[UIImage imageNamed:DefaultEmptyStarImageFilename] halfStar:[UIImage imageNamed:DefaultHalfStarImageFilename]];
 }
 
-- (DYRateView *)initWithFrame:(CGRect)frame fullStar:(UIImage *)fullStarImage emptyStar:(UIImage *)emptyStarImage {
+- (DYRateView *)initWithFrame:(CGRect)frame fullStar:(UIImage *)fullStarImage emptyStar:(UIImage *)emptyStarImage halfStar:(UIImage *)halfStarImage {
     self = [super initWithFrame:frame];
     if (self) {
         self.opaque = NO;
@@ -60,6 +62,7 @@ static NSString *DefaultEmptyStarImageFilename = @"StarEmpty.png";
 
         _fullStarImage = [fullStarImage retain];
         _emptyStarImage = [emptyStarImage retain];
+        _halfStarImage = [halfStarImage retain];
         
         [self commonSetup];
     }
@@ -71,6 +74,7 @@ static NSString *DefaultEmptyStarImageFilename = @"StarEmpty.png";
     if (self) {
         _fullStarImage = [[UIImage imageNamed:DefaultFullStarImageFilename] retain];
         _emptyStarImage = [[UIImage imageNamed:DefaultEmptyStarImageFilename] retain];
+        _halfStarImage = [[UIImage imageNamed:DefaultHalfStarImageFilename] retain];
 
         [self commonSetup];
     }
@@ -80,6 +84,7 @@ static NSString *DefaultEmptyStarImageFilename = @"StarEmpty.png";
 - (void)dealloc {
     [_fullStarImage release]; _fullStarImage = nil;
     [_emptyStarImage release]; _emptyStarImage = nil;
+    [_halfStarImage release]; _halfStarImage = nil;
     [super dealloc];
 }
 
@@ -119,12 +124,16 @@ static NSString *DefaultEmptyStarImageFilename = @"StarEmpty.png";
         x += _fullStarImage.size.width + _padding;
     }
 
-
     float floor = floorf(_rate);
     x = _origin.x;
     for (int i = 0; i < floor; i++) {
-        [_fullStarImage drawAtPoint:CGPointMake(x, _origin.y)];
-        x += _fullStarImage.size.width + _padding;
+        if (_rate - (CGFloat)i == 0.5) {
+            [_halfStarImage drawAtPoint:CGPointMake(x, _origin.y)];
+            x += _halfStarImage.size.width + _padding;
+        } else {
+            [_fullStarImage drawAtPoint:CGPointMake(x, _origin.y)];
+            x += _fullStarImage.size.width + _padding;
+        }
     }
 
     if (_numOfStars - floor > 0.01) {
@@ -168,10 +177,18 @@ static NSString *DefaultEmptyStarImageFilename = @"StarEmpty.png";
     }
 }
 
+- (void)setHalfStarImage:(UIImage *)halfStarImage {
+    if (halfStarImage != _halfStarImage) {
+        [_halfStarImage release];
+        _halfStarImage = [halfStarImage retain];
+        [self setNeedsDisplay];
+    }
+}
+
 - (void)handleTouchAtLocation:(CGPoint)location {
-    for(int i = _numOfStars - 1; i > -1; i--) {
-        if (location.x > _origin.x + i * (_fullStarImage.size.width + _padding) - _padding / 2.) {
-            self.rate = i + 1;
+    for(float i = _numOfStars*2 - 1; i > -1; i--) {
+        if (location.x > _origin.x + i/2 * (_fullStarImage.size.width + _padding) - _padding / 2.) {
+            self.rate = i/2.0 + 0.5;
             return;
         }
     }

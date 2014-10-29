@@ -32,12 +32,12 @@ typedef enum {
     RateViewAlignmentRight
 } RateViewAlignment;
 
-
 @interface DYRateView : UIView {
     UIImage *_fullStarImage;
     UIImage *_emptyStarImage;
+    UIImage *_halfStarImage;
     CGPoint _origin;
-    NSInteger _numOfStars;
+    CGFloat _numOfStars;
 }
 
 @property(nonatomic, assign) RateViewAlignment alignment;
@@ -46,10 +46,11 @@ typedef enum {
 @property(nonatomic, assign) BOOL editable;
 @property(nonatomic, retain) UIImage *fullStarImage;
 @property(nonatomic, retain) UIImage *emptyStarImage;
+@property(nonatomic, retain) UIImage *halfStarImage;
 @property(nonatomic, assign) NSObject<DYRateViewDelegate> *delegate;
 
 - (DYRateView *)initWithFrame:(CGRect)frame;
-- (DYRateView *)initWithFrame:(CGRect)rect fullStar:(UIImage *)fullStarImage emptyStar:(UIImage *)emptyStarImage;
+- (DYRateView *)initWithFrame:(CGRect)rect fullStar:(UIImage *)fullStarImage emptyStar:(UIImage *)emptyStarImage halfStar:(UIImage *)halfStarImage;
 
 @end
 
